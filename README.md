@@ -8,10 +8,22 @@ Tarea de paralelas y distribuidas - Evaluación del speedup y la eficiencia
 -Codigo: 2229712
 
 El programa suma dos vectores de 10 millones de elementos de dos maneras:
-una versión con for
-una versión con NumPy
+
+una versión con for: suma elemento a elemento usando un ciclo `for`.
+
+una versión con NumPy: suma vectorizada usando A + B.
+
 Y en ambos casos divide el trabajo entre varios procesos (NUM_HILOS = 1, 2, 4, 8) para comparar tiempos, para utilizar el codigo olamente debe cambiar la variable NUM_HILOS y correrlo, la version for y la version Numpy esta en el mismo codigo.
 
+Ejemplo:
+
+NUM_HILOS = 1
+
+NUM_HILOS = 2
+
+NUM_HILOS = 4
+
+NUM_HILOS = 8
 
 Para cada número de hilos se realizaron 5 ejecuciones.
 El promedio reportado corresponde al promedio de los 3 valores centrales, descartando el mayor y el menor, con el fin de reducir el efecto de valores atípicos.
