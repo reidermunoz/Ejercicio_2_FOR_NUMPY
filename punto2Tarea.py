@@ -24,7 +24,7 @@ if __name__ == "__main__":
     partes_B = np.array_split(B, NUM_HILOS)
     datos_partidos = list(zip(partes_A, partes_B))
 
-    # -------- FOR TRADICIONAL --------
+    # -------- FOR --------
     inicio_for = time.time()
     with Pool(processes=NUM_HILOS) as pool:
         resultados_for = pool.map(suma_for, datos_partidos)
@@ -33,7 +33,7 @@ if __name__ == "__main__":
     
     print(f"For con {NUM_HILOS} hilos: {fin_for - inicio_for:.5f} segundos")
 
-    # -------- NUMPY VECTORIZADO --------
+    # -------- NUMPY --------
     inicio_numpy = time.time()
     with Pool(processes=NUM_HILOS) as pool:
         resultados_numpy = pool.map(suma_numpy, datos_partidos)
