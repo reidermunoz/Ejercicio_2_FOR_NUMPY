@@ -140,6 +140,19 @@ En Tabla se vera asi:
 | 4 | 0.46629 | 1.02393 | 0.25598 |
 | 8 | 0.49068 | 0.97304 | 0.12163 |
 
+## Observaciones y conclusiones
+
+La versión con for presentó una mejora clara al aumentar el número de hilos. El tiempo pasó de 4.19605 s con 1 hilo a 1.20061 s con 8 hilos, alcanzando un speedup de 3.49492. Esto muestra que el paralelismo sí ayuda cuando la operación se hace manualmente con un ciclo for.
+
+Sin embargo, la eficiencia fue disminuyendo a medida que aumentó el número de hilos. Con 4 hilos la eficiencia fue 0.76913 y con 8 hilos bajó a 0.43686. Esto indica que el rendimiento no escala de forma perfecta, ya que aparecen costos adicionales por dividir los datos, enviarlos a cada proceso y unir nuevamente los resultados.
+
+En la versión con NumPy, el tiempo con 1 hilo ya fue muy bajo: 0.47745 s, mucho menor que el tiempo de la versión con for. Esto demuestra que la vectorización de NumPy es muy eficiente para este tipo de operaciones.
+
+Al aumentar el número de hilos en la versión NumPy, la mejora fue muy pequeña. Con 2 hilos el speedup fue apenas 1.09026, con 4 hilos fue 1.02393, y con 8 hilos incluso bajó a 0.97304. Esto significa que usar más hilos no aportó una mejora real en esta versión.
+
+La razón es que NumPy ya realiza internamente la operación de forma muy optimizada, por lo que el costo de crear procesos, repartir los datos y juntar los resultados termina siendo comparable o incluso mayor que el beneficio del paralelismo.
+
+En conclusión, para este problema la vectorización con NumPy fue más efectiva que el paralelismo. La versión con for sí se benefició del uso de varios hilos, pero la versión NumPy logró su mejor rendimiento prácticamente desde 1 hilo. Esto muestra que, en operaciones simples sobre arreglos grandes, la optimización SIMD/vectorizada puede ser más importante que aumentar la cantidad de hilos.
 
 163 |
 
