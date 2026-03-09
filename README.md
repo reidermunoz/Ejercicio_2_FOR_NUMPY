@@ -124,7 +124,7 @@ En Tabla se vera asi:
 
 ### Versión FOR
 
-| # de hilos | Promedio (s) | Speedup = T1/Tp | Eficiencia = Speedup/p |
+| # de hilos | Promedio (s) | Speedup = Tiempo hilo 1/Tiempo de # de hilos | Eficiencia = Speedup/Numero de Hilos |
 |-----------:|-------------:|----------------:|-----------------------:|
 | 1 | 4.19605 | 1.00000 | 1.00000 |
 | 2 | 2.02247 | 2.07471 | 1.03736 |
@@ -133,7 +133,7 @@ En Tabla se vera asi:
 
 ### Versión NUMPY
 
-| # de hilos | Promedio (s) | Speedup = T1/Tp | Eficiencia = Speedup/p |
+| # de hilos | Promedio (s) | Speedup = Tiempo hilo 1/Tiempo de # de hilos | Eficiencia = Speedup/Numero de Hilos |
 |-----------:|-------------:|----------------:|-----------------------:|
 | 1 | 0.47745 | 1.00000 | 1.00000 |
 | 2 | 0.43792 | 1.09026 | 0.54513 |
